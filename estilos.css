@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor de la tarjeta */
+.card-container {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+/* Tarjetas */
+.credential-card {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Mostrar la tarjeta activa */
+.credential-card:target {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Mostrar la primera tarjeta por defecto */
+.credential-card:first-child {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Ocultar la primera cuando se selecciona otra */
+#back:target ~ .credential-card:first-child,
+body:has(#back:target) .credential-card:first-child {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Estilos comunes para frente y reverso */
+.card-front,
+.card-back {
+    width: 100%;
+    aspect-ratio: 3 / 5;
+    border-radius: 20px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(145deg, #ffffff 0%, #f0f4ff 100%);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* FRENTE */
+.card-front {
+    transform: rotateY(0deg);
+}
+
+/* REVERSO */
+.card-back {
+    background: linear-gradient(145deg, #eef2ff 0%, #ffffff 100%);
+}
+
+/* Header frente */
+.header {
+    background: linear-gradient(135deg, #001f3f 0%, #000000 100%);
+    color: white;
+    text-align: center;
+    padding: 20px 15px 15px;
+    border-bottom: 3px solid #00a8ff;
+}
+
+.school-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header h2 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+}
+
+.header h3 {
+    font-size: 0.75rem;
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+/* Foto del estudiante */
+.student-photo {
+    display: flex;
+    justify-content: center;
+    margin: -30px auto 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.student-photo img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #001f3f;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Información del estudiante */
+.student-info {
+    padding: 15px 20px;
+    flex: 1;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.info-row .label {
+    font-weight: bold;
+    color: #001f3f;
+    font-size: 0.85rem;
+    width: 35%;
+}
+
+.info-row .value {
+    color: #333;
+    font-size: 0.85rem;
+    width: 65%;
+    text-align: right;
+    font-weight: 500;
+}
+
+/* Botón girar */
+.flip-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(135deg, #001f3f, #000000);
+    color: white;
+    border: none;
+    padding: 12px;
+    margin: 15px 20px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flip-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #002b5c, #1a1a1a);
+}
+
+.flip-btn:active {
+    transform: translateY(0);
+}
+
+/* REVERSO estilos */
+.back-header {
+    background: linear-gradient(135deg, #000000 0%, #001f3f 100%);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.back-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    background: white;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.back-header h3 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.back-info {
+    padding: 20px;
+    flex: 1;
+}
+
+.info-row-back {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+    padding: 10px;
+    background: rgba(0, 31, 63, 0.05);
+    border-radius: 12px;
+    border-left: 3px solid #001f3f;
+}
+
+.label-back {
+    font-weight: bold;
+    color: #001f3f;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.value-back {
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+/* QR Placeholder */
+.qr-code {
+    display: flex;
+    justify-content: center;
+    margin: 10px 20px;
+}
+
+.qr-placeholder {
+    width: 90px;
+    height: 90px;
+    background: #001f3f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.back-flip-btn {
+    background: linear-gradient(135deg, #000000, #001f3f);
+    margin-top: 5px;
+}
+
+/* RESPONSIVE: Móvil ocupa todo el ancho */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .card-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .card-front,
+    .card-back {
+        aspect-ratio: 3 / 5;
+    }
+
+    .student-photo img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .header {
+        padding: 15px 10px 12px;
+    }
+
+    .header h2 {
+        font-size: 1rem;
+    }
+
+    .info-row .label,
+    .info-row .value {
+        font-size: 0.8rem;
+    }
+}
+
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .student-info {
+        padding: 10px 15px;
+    }
+
+    .info-row {
+        padding: 6px 0;
+    }
+
+    .flip-btn {
+        padding: 10px;
+        margin: 10px 15px 15px;
+        font-size: 0.8rem;
+    }
+
+    .back-info {
+        padding: 15px;
+    }
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.credential-card:target .card-front,
+.credential-card:target .card-back {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Estilo para la barra de dirección cuando se cambia de tarjeta */
+html {
+    scroll-behavior: smooth;
+}

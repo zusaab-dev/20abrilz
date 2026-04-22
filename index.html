@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Credencial Estudiantil</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card-container">
+            <!-- FRENTE DE LA CREDENCIAL -->
+            <div class="credential-card" id="front">
+                <div class="card-front">
+                    <div class="header">
+                        <img src="https://static.wixstatic.com/media/307af4_2c922c39b7024e86b6b543f1593237f7~mv2.png/v1/fill/w_280,h_280,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/PANTONES%20UME_PNG.png">
+                        <h2>Instituto Educativo</h2>
+                        <h3>Excelencia Académica</h3>
+                    </div>
+                    
+                    <div class="student-photo">
+                        <img src="https://e01-elmundo.uecdn.es/assets/multimedia/imagenes/2025/06/23/17506987927885.jpg" alt="Foto Estudiante">
+                    </div>
+                    
+                    <div class="student-info">
+                        <div class="info-row">
+                            <span class="label">Nombre:</span>
+                            <span class="value">Carlos Méndez López</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Grado:</span>
+                            <span class="value">3° Semestre</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Grupo:</span>
+                            <span class="value">B</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Especialidad:</span>
+                            <span class="value">Programación</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#back" class="flip-btn">Ver datos de respaldo</a>
+                </div>
+            </div>
+
+            <!-- REVERSO DE LA CREDENCIAL -->
+            <div class="credential-card" id="back">
+                <div class="card-back">
+                    <div class="back-header">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png" alt="Logo" class="back-logo">
+                        <h3>Datos de Respaldo</h3>
+                    </div>
+                    
+                    <div class="back-info">
+                        <div class="info-row-back">
+                            <span class="label-back">Dirección:</span>
+                            <span class="value-back">Av. Insurgentes #789, Col. Del Valle, CDMX</span>
+                        </div>
+                        <div class="info-row-back">
+                            <span class="label-back">NSS:</span>
+                            <span class="value-back">9876 5432 1098 7</span>
+                        </div>
+                        <div class="info-row-back">
+                            <span class="label-back">Tipo de Sangre:</span>
+                            <span class="value-back">A+</span>
+                        </div>
+                        <div class="info-row-back">
+                            <span class="label-back">Tel. Emergencia:</span>
+                            <span class="value-back">555-987-6543</span>
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    <a href="#front" class="flip-btn back-flip-btn">Volver al frente</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
